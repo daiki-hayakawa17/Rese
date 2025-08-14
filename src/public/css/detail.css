@@ -1,0 +1,140 @@
+.detail__content {
+    display: flex;
+}
+
+.left__content {
+    width: 42%;
+    margin-left: 100px;
+}
+
+.shop__title {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.back__button {
+    background-color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.shop__name {
+    font-size: 28px;
+    margin-left: 15px;
+}
+
+.shop__image {
+    width: 100%;
+}
+
+.shop__tag {
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.shop__description {
+    font-size: 18px;
+}
+
+.right__content {
+    background-color: rgb(0, 76, 255);
+    width: 42%;
+    height: 800px;
+    margin-left: 100px;
+    position: relative;
+    top: -70px;
+    padding-top: 15px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.form__title {
+    color: #fff;
+    margin-left: 25px;
+}
+
+.date__input {
+    width: 200px;
+    height: 40px;
+    padding: 5px 10px;
+    margin-left: 25px;
+    border-radius: 5px;
+    border: none;
+}
+
+.time__input {
+    width: 85%;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-right: 25px;
+    border: none;
+    border-radius: 5px;
+    appearance: none;
+    background: white url("../images/arrow_down.png") no-repeat right center;
+    background-size: 30px;
+}
+
+.time__input::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.number__select {
+    width: 85%;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-right: 25px;
+    border: none;
+    border-radius: 5px;
+    appearance: none;
+    background: white url("../images/arrow_down.png") no-repeat right center;
+    background-size: 30px;
+}
+
+.shop__information {
+    width: 80%;
+    background-color: rgb(0, 136, 255);
+    color: #fff;
+    margin-top: 35px;
+    margin-left: 25px;
+    border-radius: 5px;
+}
+
+.shop__information th {
+    width: 150px;
+    padding-left: 25px;
+}
+
+.shop__information tr:first-child th,
+.shop__information tr:first-child td {
+    padding-top: 25px;
+}
+
+.shop__information tr:last-child th,
+.shop__information tr:last-child td {
+    padding-bottom: 25px;
+}
+
+.shop__information tr {
+    text-align: left;
+    height: 30px;
+}
+
+.form__button {
+    width: 100%;
+    height: 70px;
+    background-color: blue;
+    color: #fff;
+    text-align: center;
+    border: none;
+    margin-top: auto;
+    border-radius: 0 0 10px 10px;
+}

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopListController;
+use App\Http\Controllers\ShopReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,4 @@ use App\Http\Controllers\ShopListController;
 */
 
 Route::get('/', [ShopListController::class, 'shopListView'])->name('shop.list');
+Route::get('/detail/{shop_id}', [ShopReservationController::class, 'detail'])->name('shop.detail');

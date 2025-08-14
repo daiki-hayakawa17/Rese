@@ -4,7 +4,7 @@
     display: flex;
     justify-content: right;
     margin-left: auto;
-    margin-right: 70px;
+    margin-right: 100px;
     position: relative;
     top: -50px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
@@ -32,7 +32,7 @@
     grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     justify-content: center;
     gap: 15px;
-    padding: 30px 70px;
+    padding: 30px 100px;
     position: relative;
     top: -50px;
 }
