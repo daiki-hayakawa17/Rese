@@ -11,7 +11,7 @@
 <body>
     <header class="header">
         <button id="menuBtn" class="menuBtn">
-            <img src="{{ asset('images/menu.png') }}" alt="メニュ画像">
+            <img src="{{ asset('images/menu.png') }}" alt="メニュー画像">
         </button>
         <h1 class="header__title">Rese</h1>
     </header>
@@ -54,5 +54,6 @@
             }
         });
     </script>
+    @yield('script')
 </body>
 </html>
