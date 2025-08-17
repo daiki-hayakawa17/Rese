@@ -11,7 +11,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Fortify;
+use App\Http\Controllers\Auth\MyCustomRegisteredUserController;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -28,7 +30,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Fortify::createUsersUsing(CreateNewUser::class);
+        // Fortify::createUsersUsing(CreateNewUser::class);
         
         Fortify::registerView(function () {
             return view('auth.register');
@@ -37,6 +39,8 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::loginView(function () {
             return view('auth.login');
         });
+
+        Route::middleware('web')->post('/register', [MyCustomRegisteredUserController::class, 'store']);
 
         RateLimiter::for('login', function (Request $request) {
             $email = (string) $request->email;

@@ -81,3 +81,10 @@ body {
     color: blue;
     font-size: 36px;
 }
+
+.logout__button--submit {
+    border: none;
+    background-color: #fff;
+    font-size: 28px;
+    color: blue;
+}

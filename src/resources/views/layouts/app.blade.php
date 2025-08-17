@@ -26,6 +26,7 @@
                     <a href="/">Home</a>
                     @if (Auth::check())
                         <form class="logout__button" action="/logout" method="POST">
+                            @csrf
                             <button class="logout__button--submit">Logout</button>
                         </form>
                         <a href="/mypage">Mypage</a>
