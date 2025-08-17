@@ -18,3 +18,8 @@ use App\Http\Controllers\ShopReservationController;
 Route::get('/', [ShopListController::class, 'shopListView'])->name('shop.list');
 Route::get('/detail/{shop_id}', [ShopReservationController::class, 'detail'])->name('shop.detail');
 Route::get('/thanks', [ShopListController::class, 'thanksView']);
+
+Route::middleware('auth')->group(function () {
+    Route::post('/detail/{shop_id}', [ShopReservationController::class, 'reservation']);
+    Route::get('/done', [ShopReservationController::class, 'done']);
+});
