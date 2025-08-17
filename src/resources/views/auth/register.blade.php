@@ -7,6 +7,7 @@
 @section('content')
     <h2 class="form__title">Registration</h2>
     <form class="register__form" action="/register" method="POST">
+        @csrf
         <div class="form__group">
             <label>
                 <img src="{{ asset('images/user.png') }}" alt="ユーザーアイコン">
