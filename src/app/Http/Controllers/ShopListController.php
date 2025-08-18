@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
+use App\Models\Like;
 
 class ShopListController extends Controller
 {
     public function shopListView(Request $request)
     {
-        $query = Shop::with(['area', 'genre']);
+        $user = Auth::user();
+
+        $query = Shop::with(['area', 'genre', 'likedByUsers']);
 
         if ($request->filled('area_id')) {
             $query->where('area_id', $request->area_id);
@@ -33,8 +37,5 @@ class ShopListController extends Controller
         return view('list', compact('shops', 'areas', 'genres'));
     }
 
-    public function thanksView()
-    {
-        return view('auth.thanks');
-    }
+    
 }
