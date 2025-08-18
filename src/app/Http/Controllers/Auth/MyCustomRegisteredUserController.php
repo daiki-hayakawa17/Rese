@@ -23,4 +23,10 @@ class MyCustomRegisteredUserController extends Controller
 
         return redirect('/thanks');
     }
+
+    public function thanksView()
+    {
+        return view('auth.thanks');
+    }
 }
+

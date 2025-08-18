@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopListController;
 use App\Http\Controllers\ShopReservationController;
+use App\Http\Controllers\Auth\MyCustomRegisteredUserController;
+use App\Http\Controllers\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +19,11 @@ use App\Http\Controllers\ShopReservationController;
 
 Route::get('/', [ShopListController::class, 'shopListView'])->name('shop.list');
 Route::get('/detail/{shop_id}', [ShopReservationController::class, 'detail'])->name('shop.detail');
-Route::get('/thanks', [ShopListController::class, 'thanksView']);
+Route::get('/thanks', [MyCustomRegisteredUserController::class, 'thanksView']);
 
 Route::middleware('auth')->group(function () {
     Route::post('/detail/{shop_id}', [ShopReservationController::class, 'reservation']);
     Route::get('/done', [ShopReservationController::class, 'done']);
+    Route::post('/like/{shop_id}', [LikeController::class, 'like']);
+    Route::post('/unlike/{shop_id}', [LikeController::class, 'unlike']);
 });

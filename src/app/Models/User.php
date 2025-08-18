@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reservation::class);
     }
+
+    public function likedShops()
+    {
+        return $this->belongsToMany(Shop::class, 'likes', 'user_id', 'shop_id');
+    }
 }
