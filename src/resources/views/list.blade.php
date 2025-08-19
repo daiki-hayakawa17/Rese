@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-    <form class="search__form" action="/" method="GET">
-        <select name="area_id">
+    <form class="search__form" action="/" method="GET" id="searchForm">
+        <select name="area_id" id="areaSelect">
             <option value="">All area</option>
             @foreach ($areas as $area)
                 <option value="{{ $area->id }}" {{ request('area_id') == $area->id ? 'selected' : '' }}>    
@@ -14,7 +14,8 @@
                 </option>
             @endforeach
         </select>
-        <select name="genre_id">
+        <div class="line"></div>
+        <select name="genre_id" id="genreSelect">
             <option value="">All genre</option>
             @foreach ($genres as $genre)
                 <option value="{{ $genre->id }}" {{ request('genre_id') == $genre->id ? 'selected' : '' }}>
@@ -22,7 +23,13 @@
                 </option>
             @endforeach
         </select>
-        <input type="text" name="keyword" value="{{ request('keyword') }}" placeholder="Search">
+        <div class="line__second"></div>
+        <div class="input__group">
+            <div class="search__icon">
+                <img src="{{ asset('images/search.png') }}" alt="虫眼鏡アイコン">
+            </div>
+            <input type="text" name="keyword" value="{{ request('keyword') }}" placeholder="Search">
+        </div>
     </form>
     <div class="shop__contents">
         @foreach ($shops as $shop)
@@ -61,4 +68,14 @@
             </div>
         @endforeach
     </div>
+@endsection
+
+@section('script')
+    <script>
+        document.querySelectorAll('#searchForm select').forEach(select => {
+            select.addEventListener('change', function() {
+                document.getElementById('searchForm').submit();
+            });
+        });
+    </script>
 @endsection
