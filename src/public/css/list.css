@@ -20,11 +20,45 @@
     background: white url("../images/arrow_down.png") no-repeat right center;
     background-size: 30px;
     padding-right: 10px;
+    outline: none;
+}
+
+.line {
+    background-color: #f5f5f5;
+    width: 2px;
+    height: 25px;
+    position: absolute;
+    top: 7px;
+    left: 85px;
+}
+
+.line__second {
+    position: absolute;
+    background-color: #f5f5f5;
+    width: 3px;
+    height: 25px;
+    top: 7px;
+    left: 170px;
+}
+
+.input__group {
+    display: flex;
+}
+
+.search__icon {
+    background-color: #fff;
+    align-content: center;
+}
+
+.search__icon img {
+    width: 25px;
+    height: 25px;
 }
 
 .search__form input {
     width: 400px;
     border: none;
+    outline: none;
 }
 
 .shop__contents {
