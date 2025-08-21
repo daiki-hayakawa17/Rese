@@ -27,5 +27,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/done', [ShopReservationController::class, 'done']);
     Route::post('/like/{shop_id}', [LikeController::class, 'like']);
     Route::post('/unlike/{shop_id}', [LikeController::class, 'unlike']);
-    Route::get('mypage', [MypageController::class, 'mypageView']);
+    Route::get('/mypage', [MypageController::class, 'mypageView']);
+    Route::post('/delete/{reservation_id}', [ShopReservationController::class, 'destroy']);
 });

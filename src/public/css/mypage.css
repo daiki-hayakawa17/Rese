@@ -48,10 +48,15 @@
     font-weight: 400;
 }
 
+.delete__button {
+    background-color: rgb(0, 76, 255);
+    border: none;
+    margin-left: auto;
+}
+
 .close__image {
     width: 25px;
     height: 25px;
-    margin-left: auto;
     border: 3px solid #fff;
     border-radius: 50%;
 }
