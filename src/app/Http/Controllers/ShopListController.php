@@ -36,6 +36,4 @@ class ShopListController extends Controller
 
         return view('list', compact('shops', 'areas', 'genres'));
     }
-
-    
 }
