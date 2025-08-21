@@ -5,6 +5,7 @@ use App\Http\Controllers\ShopListController;
 use App\Http\Controllers\ShopReservationController;
 use App\Http\Controllers\Auth\MyCustomRegisteredUserController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\MypageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/done', [ShopReservationController::class, 'done']);
     Route::post('/like/{shop_id}', [LikeController::class, 'like']);
     Route::post('/unlike/{shop_id}', [LikeController::class, 'unlike']);
+    Route::get('mypage', [MypageController::class, 'mypageView']);
 });

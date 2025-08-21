@@ -31,6 +31,6 @@ class LikeController extends Controller
         $like = Like::where('shop_id', $shop_id)->where('user_id', $user_id)->first();
         $like->delete();
 
-        return redirect('/');
+        return redirect()->back();
     }
 }

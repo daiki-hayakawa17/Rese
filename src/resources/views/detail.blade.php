@@ -8,7 +8,7 @@
     <div class="detail__content">
         <div class="left__content">
             <div class="shop__title">
-                <a class="back__button" href="{{ url()->previous() }}">
+                <a class="back__button" href= "/">
                     <img src="{{ asset('images/arrow_left.png') }}" alt="戻るボタン">
                 </a>
                 <h2 class="shop__name">{{ $shop->name }}</h2>
@@ -25,7 +25,7 @@
             <input type="date" name="date" class="date__input" id="date">
             <input type="time" name="time" class="time__input" id="time">
             <select class="number__select" name="number" id="number">
-                @for ($i = 1; $i <=10; $i++)
+                @for ($i = 1; $i <=100; $i++)
                     <option value="{{ $i }}">{{ $i }}人</option>
                 @endfor
             </select>
