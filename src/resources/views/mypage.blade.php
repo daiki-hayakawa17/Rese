@@ -15,7 +15,9 @@
                     <div class="information__inner--header">
                         <img src="{{ asset('images/clock.png') }}" class="clock__image">
                         <p class="inner__header--text">予約{{ $loop->iteration }}</p>
-                        <img src="{{ asset('images/close.png') }}" class="close__image">
+                        <button class="delete__button">
+                            <img src="{{ asset('images/close.png') }}" class="close__image">
+                        </button>
                     </div>
                     <table class="shop__information">
                         <tr>
