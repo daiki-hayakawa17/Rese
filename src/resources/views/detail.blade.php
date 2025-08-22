@@ -8,7 +8,7 @@
     <div class="detail__content">
         <div class="left__content">
             <div class="shop__title">
-                <a class="back__button" href= "/">
+                <a class="back__button" href= "{{ url()->previous() }}">
                     <img src="{{ asset('images/arrow_left.png') }}" alt="戻るボタン">
                 </a>
                 <h2 class="shop__name">{{ $shop->name }}</h2>

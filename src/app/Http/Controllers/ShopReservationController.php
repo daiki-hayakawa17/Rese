@@ -45,4 +45,15 @@ class ShopReservationController extends Controller
 
         return redirect('/mypage');
     }
+
+    public function update($reservation_id, Request $request)
+    {
+        Reservation::find($reservation_id)->update([
+            'date' => $request->date,
+            'time' => $request->time,
+            'number' => $request->number,
+        ]);
+
+        return redirect('/mypage');
+    }
 }

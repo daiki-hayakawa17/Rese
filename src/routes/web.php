@@ -18,7 +18,7 @@ use App\Http\Controllers\MypageController;
 |
 */
 
-Route::get('/', [ShopListController::class, 'shopListView'])->name('shop.list');
+Route::get('/', [ShopListController::class, 'index'])->name('shop.list');
 Route::get('/detail/{shop_id}', [ShopReservationController::class, 'detail'])->name('shop.detail');
 Route::get('/thanks', [MyCustomRegisteredUserController::class, 'thanksView']);
 
@@ -29,4 +29,5 @@ Route::middleware('auth')->group(function () {
     Route::post('/unlike/{shop_id}', [LikeController::class, 'unlike']);
     Route::get('/mypage', [MypageController::class, 'mypageView']);
     Route::post('/delete/{reservation_id}', [ShopReservationController::class, 'destroy']);
+    Route::post('/update/{reservation_id}', [ShopReservationController::class, 'update']);
 });

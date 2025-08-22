@@ -77,6 +77,42 @@
     padding-left: 50px;
 }
 
+.shop__information td input {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+}
+
+.shop__information td input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.shop__information td select {
+    background-color: rgb(0, 76, 255);
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.update__button {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.update__button--submit {
+    width: 50px;
+    height: 30px;
+    background-color: #fff;
+    color: rgb(0, 76, 255);
+    border: none;
+    font-size: 16px;
+}
+
 .liked__shops {
     width: 55%;
 }
