@@ -11,7 +11,7 @@ use App\Models\Like;
 
 class ShopListController extends Controller
 {
-    public function shopListView(Request $request)
+    public function index(Request $request)
     {
         $user = Auth::user();
 
