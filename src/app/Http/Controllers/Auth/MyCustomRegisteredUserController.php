@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 use App\Models\User;
+use App\Http\Requests\Auth\RegisterRequest;
 
 
 class MyCustomRegisteredUserController extends Controller
 {
-    public function store(Request $request)
+    public function store(RegisterRequest $request)
     {
         $user = User::create([
             'name' => $request->name,

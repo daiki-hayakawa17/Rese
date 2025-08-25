@@ -23,12 +23,27 @@
             @csrf
             <h2 class="form__title">予約</h2>
             <input type="date" name="date" class="date__input" id="date">
+            <div class="form__error">
+                @error('date')
+                    {{ $message }}   
+                @enderror
+            </div>
             <input type="time" name="time" class="time__input" id="time">
+            <div class="form__error">
+                @error('time')
+                    {{ $message }}
+                @enderror
+            </div>
             <select class="number__select" name="number" id="number">
                 @for ($i = 1; $i <=100; $i++)
                     <option value="{{ $i }}">{{ $i }}人</option>
                 @endfor
             </select>
+            <div class="form__error">
+                @error('number')
+                    {{ $message }}   
+                @enderror
+            </div>
             <table class="shop__information">
                 <tr>
                     <th>Shop</th>
