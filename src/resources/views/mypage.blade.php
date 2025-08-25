@@ -11,8 +11,8 @@
             <h3 class="information__title">予約状況</h3>
             @foreach ($reservations as $reservation)
                 <div class="information__inner">
-                    @csrf
                     <form  class="information__inner--header" action="/delete/{{ $reservation->id }}" method="post">
+                        @csrf
                         <img src="{{ asset('images/clock.png') }}" class="clock__image">
                         <p class="inner__header--text">予約{{ $loop->iteration }}</p>
                         <button class="delete__button" type="submit" name="action_type" value="">
@@ -28,11 +28,25 @@
                             </tr>
                             <tr>
                                 <th>Date</th>
-                                <td><input type="date" name="date" value="{{ $reservation->date }}"></td>
+                                <td>
+                                    <input type="date" name="date" value="{{ $reservation->date }}">
+                                    <div class="form__error">
+                                        @error('date')
+                                            {{ $message }}   
+                                        @enderror
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <th>Time</th>
-                                <td><input type="time" name="time" value="{{ $reservation->time }}"></td>
+                                <td>
+                                    <input type="time" name="time" value="{{ $reservation->time }}">
+                                    <div class="form__error">
+                                        @error('time')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <th>Numer</th>
@@ -42,6 +56,11 @@
                                             <option value="{{ $i }}" {{ $reservation->number == $i ? 'selected' : '' }}>{{ $i }}人</option>
                                         @endfor
                                     </select>
+                                    <div class="form__error">
+                                        @error('number')
+                                            {{ $message }}
+                                        @enderror
+                                    </div>
                                 </td>
                             </tr>
                         </table>
