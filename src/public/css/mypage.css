@@ -194,3 +194,26 @@
     line-height: 21px;
     color: #FD0707;
 }
+
+@media (max-width:768px) {
+    .mypage__content {
+        flex-direction: column;
+        padding: 10px 50px;
+    }
+
+    .reservation__information {
+        width: 100%;
+    }
+
+    .shop__information th {
+        min-width: 70px;
+    }
+
+    .liked__shops {
+        width: 100%;
+    }
+
+    .shop__card {
+        width: 100%;
+    }
+}

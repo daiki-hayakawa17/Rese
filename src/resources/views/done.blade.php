@@ -10,7 +10,7 @@
             ご予約ありがとうございます    
         </p>
         <div class="back__link">
-            <a href="{{ url('/detail/' . $shop_id) }}">戻る</a>
+            <a href="/">戻る</a>
         </div>
     </div>
 @endsection

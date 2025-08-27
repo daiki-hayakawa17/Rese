@@ -60,7 +60,8 @@
 }
 
 .date__input {
-    width: 200px;
+    width: 100%;
+    max-width: 200px;
     height: 40px;
     padding: 5px 10px;
     margin-left: 25px;
@@ -147,4 +148,21 @@
     font-size: 20px;
     line-height: 21px;
     color: #FD0707;
+}
+
+@media (max-width: 768px) {
+    .detail__content {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .left__content,
+    .right__content {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .left__content {
+        margin-bottom: 100px;
+    }
 }

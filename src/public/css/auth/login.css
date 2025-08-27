@@ -57,3 +57,13 @@
     line-height: 21px;
     color: #FD0707;
 }
+
+@media (max-width: 768px) {
+    .form__title {
+        width: 50%;
+    }
+
+    .login__form {
+        width: 50%;
+    }
+}
