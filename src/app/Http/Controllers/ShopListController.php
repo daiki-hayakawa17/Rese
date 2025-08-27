@@ -34,6 +34,6 @@ class ShopListController extends Controller
         $areas = Area::all();
         $genres = Genre::all();
 
-        return view('list', compact('shops', 'areas', 'genres'));
+        return view('index', compact('shops', 'areas', 'genres'));
     }
 }

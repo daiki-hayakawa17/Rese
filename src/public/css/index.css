@@ -1,5 +1,6 @@
 .search__form {
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     height: 40px;
     display: flex;
     justify-content: right;
@@ -12,24 +13,39 @@
     overflow: hidden;
 }
 
-.search__form select {
-    width: 100px;
+.select__group--genre,
+.select__group--area {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 100px;
     border: none;
     padding-left: 10px;
-    appearance: none;
     background: white url("../images/arrow_down.png") no-repeat right center;
     background-size: 30px;
-    padding-right: 10px;
-    outline: none;
 }
 
-.line {
+.select__group--genre select,
+.select__group--area select {
+    appearance: none;
+    outline: none;
+    border: none;
+}
+
+.select__group--area::after {
+    content: "";
     background-color: #f5f5f5;
-    width: 2px;
+    width: 3px;
     height: 25px;
-    position: absolute;
-    top: 7px;
-    left: 85px;
+    margin-left: 40px;
+}
+
+.select__group--genre::after {
+    content: "";
+    background-color: #f5f5f5;
+    width: 3px;
+    height: 25px;
+    margin-left: 20px;
 }
 
 .line__second {
@@ -38,10 +54,12 @@
     width: 3px;
     height: 25px;
     top: 7px;
-    left: 170px;
+    left: 32.5%;
 }
 
 .input__group {
+    width: 100%;
+    max-width: 400px;
     display: flex;
 }
 
@@ -55,8 +73,9 @@
     height: 25px;
 }
 
-.search__form input {
-    width: 400px;
+.input__group input {
+    width: 100%;
+    max-width: 400px;
     border: none;
     outline: none;
 }
@@ -127,4 +146,24 @@
     width: 35px;
     height: 35px;
     margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+    .search__form {
+        position: relative;
+        top: 0;
+        width: 75%;
+        max-width: 560px;
+        margin: 0 auto;
+    }
+
+    .search__form input {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .shop__contents {
+        position: relative;
+        top: 0;
+    }
 }

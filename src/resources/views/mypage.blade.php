@@ -49,7 +49,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Numer</th>
+                                <th>Number</th>
                                 <td>
                                     <select class="number__select" name="number">
                                         @for ($i = 1; $i <=100; $i++)
