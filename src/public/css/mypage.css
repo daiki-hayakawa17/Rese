@@ -15,8 +15,25 @@
     margin-right: 30px;
 }
 
-.information__title {
+.information__tab {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.reservation__tab,
+.visited__tab {
     font-size: 22px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #000;
+}
+
+.visited__tab {
+    margin-left: 20px;
+}
+
+.active {
+    color: #FD0707;
 }
 
 .information__inner {
@@ -111,6 +128,76 @@
     color: rgb(0, 76, 255);
     border: none;
     font-size: 16px;
+}
+
+.visited__information {
+    display: flex;
+    background-color: #fff;
+}
+
+.visited__shop--image {
+    width: 50%;
+}
+
+.visited__shop--image img {
+    width: 100%;
+}
+
+.visited__shop--information {
+    padding: 5px 20px;
+}
+
+.visited__shop--name {
+    font-size: 22px;
+    font-weight: 700;
+    color: rgb(0, 150, 255);
+}
+
+.visited__shop--area {
+    color: #6c6c6c;
+}
+
+.visited__shop--genre {
+    color: #6c6c6c;
+}
+
+.visited__shop--reservation {
+    display: flex;
+    background-color: #fff;
+    font-size: 20px;
+    padding: 0 20px;
+}
+
+.visited__reservation--title {
+    margin-right: 20px;
+    font-weight: 700;
+}
+
+.visited__shop--number {
+    display: flex;
+    background-color: #fff;
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+.visited__number--title {
+    margin-right: 60px;
+    font-weight: 700;
+}
+
+.review__link {
+    background-color: #fff;
+    text-align: right;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.review__link--button {
+    text-decoration: none;
+    background-color: rgb(0, 76, 255);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 5px;
 }
 
 .liked__shops {
