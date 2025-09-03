@@ -65,6 +65,24 @@
             <button class="form__button">予約する</button>
         </form>
     </div>
+    <h2 class="review__title">このお店の評価</h2>
+    <div class="review__contents">
+        @foreach($reviews as $review)
+            <div class="review__content">
+                <p class="review__user">{{ $review->user->name }}さんの評価</p>
+                <div class="review__star">
+                    @for ($i = 1; $i <= 5; $i++)
+                        @if ($i <= $review->rating)
+                            <span style="color: gold">★</span>
+                        @else
+                            <span style="color: #ccc">★</span>
+                        @endif
+                    @endfor
+                </div>
+                <p class="review__comment">{{ $review->comment }}</p>
+            </div>
+        @endforeach
+    </div>
 @endsection
 
 @section('script')

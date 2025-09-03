@@ -131,12 +131,11 @@
 }
 
 .visited__information {
-    display: flex;
     background-color: #fff;
 }
 
 .visited__shop--image {
-    width: 50%;
+    width: 100%;
 }
 
 .visited__shop--image img {
@@ -148,9 +147,8 @@
 }
 
 .visited__shop--name {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
-    color: rgb(0, 150, 255);
 }
 
 .visited__shop--area {

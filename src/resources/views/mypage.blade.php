@@ -95,7 +95,7 @@
                         <p class="visited__number">{{ $reservation->number }}人</p>
                     </div>
                     <div class="review__link">
-                        <a class="review__link--button" href="/review">口コミを投稿する</a>
+                        <a class="review__link--button" href="/review/{{$reservation->shop->id}}">口コミを投稿する</a>
                     </div>
                 @endforeach        
             @endif

@@ -52,6 +52,10 @@
                         <a href="/detail/{{$shop->id}}" class="detail__link">
                             詳しくみる
                         </a>
+                        <div class="review">
+                            <p class="review__star">★</p>
+                            <p class="review__number">{{ number_format($shop->average_rating, 1) }}</p>
+                        </div>
                         <button class="favorite__button">
                             <img src="{{ asset('images/favorite_red.png')}}">
                         </button>
@@ -62,6 +66,10 @@
                         <a href="/detail/{{$shop->id}}" class="detail__link">
                             詳しくみる
                         </a>
+                        <div class="review">
+                            <p class="review__star">★</p>
+                            <p class="review__number">{{ number_format($shop->average_rating, 1) }}</p>
+                        </div>
                         <button class="favorite__button">
                             <img src="{{ asset('images/favorite.png')}}">
                         </button>

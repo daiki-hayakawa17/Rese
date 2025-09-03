@@ -12,9 +12,11 @@ class ShopReservationController extends Controller
 {
     public function detail($shop_id)
     {
-        $shop = Shop::with(['area', 'genre'])->find($shop_id);
+        $shop = Shop::with(['area', 'genre', 'reviews'])->find($shop_id);
 
-        return view('detail', compact('shop'));
+        $reviews = $shop->reviews;
+
+        return view('detail', compact('shop', 'reviews'));
     }
 
     public function reservation($shop_id, ReservationRequest $request)
