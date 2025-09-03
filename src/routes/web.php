@@ -6,6 +6,7 @@ use App\Http\Controllers\ShopReservationController;
 use App\Http\Controllers\Auth\MyCustomRegisteredUserController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MypageController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/mypage', [MypageController::class, 'mypageView'])->name('mypage');
     Route::post('/delete/{reservation_id}', [ShopReservationController::class, 'destroy']);
     Route::post('/update/{reservation_id}', [ShopReservationController::class, 'update']);
+    Route::get('/review/{shop_id}', [ReviewController::class, 'createView']);
+    Route::post('/review/{shop_id}', [ReviewController::class, 'store']);
 });

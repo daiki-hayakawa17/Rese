@@ -33,6 +33,11 @@ class Shop extends Model
         return $this->hasMAny(Reservation::class);
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
     public function likedByUsers()
     {
         return $this->belongsToMany(User::class, 'likes', 'shop_id', 'user_id');
@@ -41,6 +46,11 @@ class Shop extends Model
     public function isLikedByAuthUser()
     {
         return $this->likes->contains('user_id', Auth::id());
+    }
+
+    public function getAverageRatingAttribute()
+    {
+        return $this->reviews()->avg('rating');
     }
 
     public function scopeKeywordSearch($query, $keyword)

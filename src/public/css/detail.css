@@ -150,6 +150,46 @@
     color: #FD0707;
 }
 
+.review__contents {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 80px;
+}
+
+.review__content {
+    width: 100%;
+    height: 250px;
+    max-width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    overflow-y: hidden;
+}
+
+.review__title {
+    font-size: 30px;
+    margin-left: 70px;
+}
+
+.review__user {
+    font-weight: 500;
+}
+
+.review__star {
+    text-align: center;
+    font-size: 24px;
+}
+
+.review__comment {
+    color: #979797;
+    font-size: 14px;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
 @media (max-width: 768px) {
     .detail__content {
         flex-direction: column;
