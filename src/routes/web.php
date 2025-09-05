@@ -43,4 +43,5 @@ Route::get('admin/login', function () {
 
 Route::middleware('admin')->group(function () {
     Route::get('/admin/owner/create', [OwnerController::class, 'create']);
+    Route::post('/admin/owner/create', [OwnerController::class, 'store']);
 });
