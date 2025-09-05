@@ -186,8 +186,10 @@
 .review__comment {
     color: #979797;
     font-size: 14px;
-    max-height: 100px;
-    overflow-y: auto;
+    height: 100px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
 }
 
 @media (max-width: 768px) {
