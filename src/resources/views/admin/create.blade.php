@@ -41,6 +41,7 @@
                 @enderror
             </div>
         </div>
+        <input type="hidden" name="role" value="owner">
         <div class="form__button">
             <button class="form__button--submit">登録</button>
         </div>
