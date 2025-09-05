@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\MyCustomRegisteredUserController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\Admin\OwnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/update/{reservation_id}', [ShopReservationController::class, 'update']);
     Route::get('/review/{shop_id}', [ReviewController::class, 'createView']);
     Route::post('/review/{shop_id}', [ReviewController::class, 'store']);
+});
+
+Route::get('admin/login', function () {
+    return view('admin.login');
+})->name('admin.login');
+
+
+Route::middleware('admin')->group(function () {
+    Route::get('/admin/owner/create', [OwnerController::class, 'create']);
 });

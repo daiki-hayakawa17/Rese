@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Fortify;
 use App\Http\Controllers\Auth\MyCustomRegisteredUserController;
 use App\Http\Controllers\Auth\CustomLoginController;
+use App\Http\Controllers\Auth\AdminAuthenticatedSessionController;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -48,7 +49,9 @@ class FortifyServiceProvider extends ServiceProvider
 
         Route::middleware('web')->post('/register', [MyCustomRegisteredUserController::class, 'store']);
         Route::middleware('web')->post('/login', [CustomLoginController::class, 'store']);
+        Route::middleware('web')->post('/admin/login', [AdminAuthenticatedSessionController::class, 'store']);
         Route::middleware('web')->post('/logout', [CustomLoginController::class, 'destroy']);
+        Route::middleware('web')->post('/admin/logout', [AdminAuthenticatedSessionController::class, 'destroy']);
 
         RateLimiter::for('login', function (Request $request) {
             $email = (string) $request->email;
