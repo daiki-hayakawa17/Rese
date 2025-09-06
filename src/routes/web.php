@@ -45,3 +45,7 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/owner/create', [OwnerController::class, 'create']);
     Route::post('/admin/owner/create', [OwnerController::class, 'store']);
 });
+
+Route::get('/owner/login', function () {
+    return view('owner.login');
+})->name('owner.login');
