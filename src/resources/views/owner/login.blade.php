@@ -6,7 +6,7 @@
 
 @section('content')
     <h2 class="form__title">OwnerLogin</h2>
-    <form class="login__form" action="/admin/login" method="POST">
+    <form class="login__form" action="/owner/login" method="POST">
         @csrf
         <div class="form__group">
             <label>
