@@ -30,12 +30,12 @@
                     <img src="{{ asset('images/close.png') }}" alt="closeボタン">
                 </button>
                 <div class="menu__links">
-                    <form class="logout__button" action="/admin/logout" method="POST">
+                    <form class="logout__button" action="/owner/logout" method="POST">
                         @csrf
                         <button class="logout__button--submit">Logout</button>
                     </form>
-                    <a class="shop__registration--link">Registration</a>
-                    <a class="shop__detail--link">Detail</a>
+                    <a class="shop__registration--link" href="/owner/shop/create">Registration</a>
+                    <a class="shop__detail--link" href="/owner/shop/detail">Detail</a>
                 </div>
             </div>
         </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Admin\OwnerController;
+use App\Http\Controllers\Owner\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,7 @@ Route::middleware('admin')->group(function () {
 Route::get('/owner/login', function () {
     return view('owner.login');
 })->name('owner.login');
+
+Route::middleware('owner')->group(function () {
+    Route::get('/owner/shop/create', [ShopController::class, 'create']);
+});
