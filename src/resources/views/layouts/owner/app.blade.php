@@ -35,7 +35,7 @@
                         <button class="logout__button--submit">Logout</button>
                     </form>
                     <a class="shop__registration--link" href="/owner/shop/create">Registration</a>
-                    <a class="shop__detail--link" href="/owner/shop/detail">Detail</a>
+                    <a class="shop__detail--link" href="/owner/shop/list">List</a>
                 </div>
             </div>
         </div>
