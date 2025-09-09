@@ -22,7 +22,7 @@
             <div class="form__input--area">
                 @foreach($areas as $area)
                 <label>
-                    <input type="radio" name="area" value="{{ $area->id }}">
+                    <input type="radio" name="area_id" value="{{ $area->id }}">
                     <span>{{ $area->name }}</span>
                 </label>
                 @endforeach
@@ -33,7 +33,7 @@
             <div class="form__input--genre">
                 @foreach($genres as $genre)
                 <label>
-                    <input type="radio" name="genre" value="{{ $genre->id }}">
+                    <input type="radio" name="genre_id" value="{{ $genre->id }}">
                     <span>{{ $genre->content }}</span>
                 </label>
                 @endforeach
@@ -42,7 +42,7 @@
         <span class="form__input--label">店舗名</span>
         <input class="input__name" type="text" name="name" placeholder="店舗名を入力してください">
         <span class="form__input--label">店舗概要</span>
-        <textarea class="textarea" rows="10" cols="40" placeholder="店舗概要を入力してください"></textarea>
+        <textarea class="textarea" rows="10" cols="40" placeholder="店舗概要を入力してください" name="description"></textarea>
         <button class="form__button">作成</button>
     </form>
 @endsection
