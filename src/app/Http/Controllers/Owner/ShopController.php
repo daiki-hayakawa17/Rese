@@ -38,6 +38,19 @@ class ShopController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect('/owner/shop/create');
+        return redirect('/owner/shop/list');
+    }
+
+    public function list(Request $request)
+    {
+        $query = Shop::with(['area', 'genre', 'likedByUsers']);
+
+        if ($request->filled('keyword')) {
+            $query->keywordSearch($request->keyword);
+        }
+
+        $shops = $query->where('user_id', Auth::id())->get();
+
+        return view('owner.list', compact('shops'));
     }
 }

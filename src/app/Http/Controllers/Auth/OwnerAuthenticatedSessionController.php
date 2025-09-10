@@ -26,7 +26,7 @@ class OwnerAuthenticatedSessionController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/owner/shop/create');
+            return redirect('/owner/shop/list');
         }
 
         return back()->withErrors([
