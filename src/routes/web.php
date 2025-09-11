@@ -56,4 +56,5 @@ Route::middleware('owner')->group(function () {
     Route::post('/owner/shop/create', [ShopController::class, 'store']);
     Route::get('/owner/shop/list', [ShopController::class, 'list']);
     Route::get('/owner/shop/detail/{shop_id}', [ShopController::class, 'detail']);
+    Route::post('/owner/shop/detail/{shop_id}', [ShopController::class, 'update']);
 });
