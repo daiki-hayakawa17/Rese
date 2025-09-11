@@ -1,11 +1,11 @@
 @extends('layouts.owner.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/owner/create.css') }}">
+<link rel="stylesheet" href="{{ asset('css/owner/detail.css') }}">
 @endsection
 
 @section('content')
-    <form class="form" action="/owner/shop/create" method="POST" enctype="multipart/form-data">
+    <form class="form" action="/owner/shop/detail/{{$shop->id}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form__input--image">
             <span class="form__input--label">店舗画像</span>
@@ -13,7 +13,7 @@
                 <label class="output__label" for="shop__image">
                     <output id="image" class="image__output"></output>
                 </label>
-                <label class="image__input--label" for="shop__image">画像を選択する</label>
+                <label class="image__input--label" for="shop__image"><img src="{{ asset($shop->image) }}" alt="お店画像"></label>
                 <input type="file" id="shop__image" name="shop__image" accept="image/*">
             </div>
         </div>
@@ -22,7 +22,7 @@
             <div class="form__input--area">
                 @foreach($areas as $area)
                 <label>
-                    <input type="radio" name="area_id" value="{{ $area->id }}">
+                    <input type="radio" name="area_id" value="{{ $area->id }}" {{ $area->id === $shop->area->id ? 'checked' : '' }}>
                     <span>{{ $area->name }}</span>
                 </label>
                 @endforeach
@@ -33,17 +33,17 @@
             <div class="form__input--genre">
                 @foreach($genres as $genre)
                 <label>
-                    <input type="radio" name="genre_id" value="{{ $genre->id }}">
+                    <input type="radio" name="genre_id" value="{{ $genre->id }}" {{ $genre->id === $shop->genre->id ? 'checked' : '' }}>
                     <span>{{ $genre->content }}</span>
                 </label>
                 @endforeach
             </div>
         </div>
         <span class="form__input--label">店舗名</span>
-        <input class="input__name" type="text" name="name" placeholder="店舗名を入力してください">
+        <input class="input__name" type="text" name="name" value="{{ $shop->name }}">
         <span class="form__input--label">店舗概要</span>
-        <textarea class="textarea" rows="10" cols="40" placeholder="店舗概要を入力してください" name="description"></textarea>
-        <button class="form__button">作成</button>
+        <textarea class="textarea" rows="10" cols="40" name="description">{{ $shop->description }}</textarea>
+        <button class="form__button">更新</button>
     </form>
 @endsection
 
@@ -68,6 +68,7 @@
                 }
             })(f);
         }
+
         var inputLabel = document.querySelector('.image__input--label');
         if (inputLabel) {
             inputLabel.style.display = 'none';
