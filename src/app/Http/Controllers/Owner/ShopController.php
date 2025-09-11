@@ -53,4 +53,13 @@ class ShopController extends Controller
 
         return view('owner.list', compact('shops'));
     }
+
+    public function detail($shop_id)
+    {
+        $shop = Shop::with(['area', 'genre'])->find($shop_id);
+        $areas = Area::all();
+        $genres = Genre::all();
+
+        return view('owner.detail', compact('shop', 'areas', 'genres'));
+    }
 }
