@@ -43,7 +43,11 @@
         <input class="input__name" type="text" name="name" value="{{ $shop->name }}">
         <span class="form__input--label">店舗概要</span>
         <textarea class="textarea" rows="10" cols="40" name="description">{{ $shop->description }}</textarea>
-        <button class="form__button">更新</button>
+        <div class="button__group">
+            <a class="shop__reservation--link" href="owner/shop/reservation">予約情報</a>
+            <div class="line"></div>
+            <button class="form__button">更新</button>
+        </div>
     </form>
 @endsection
 

@@ -62,4 +62,27 @@ class ShopController extends Controller
 
         return view('owner.detail', compact('shop', 'areas', 'genres'));
     }
+
+    public function update($shop_id, Request $request)
+    {
+        $shop = Shop::find($shop_id);
+
+        $dir = 'images';
+
+        $file = $request->file('shop__image');
+        $file_name = $file->getClientOriginalName();
+        // $request->file('shop__image')->storeAs('public/' . $dir, $file_name);
+
+        $image = 'storage/' . $dir . '/' . $file_name;
+        
+        $shop->update([
+            'area_id' => $request->area_id,
+            'genre_id' => $request->genre_id,
+            'name' => $request->name,
+            'image' => $image,
+            'description' => $request->description,
+        ]);
+
+        return redirect('/owner/shop/list');
+    }
 }
