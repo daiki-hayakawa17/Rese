@@ -71,7 +71,7 @@ class ShopController extends Controller
 
         $file = $request->file('shop__image');
         $file_name = $file->getClientOriginalName();
-        // $request->file('shop__image')->storeAs('public/' . $dir, $file_name);
+        $request->file('shop__image')->storeAs('public/' . $dir, $file_name);
 
         $image = 'storage/' . $dir . '/' . $file_name;
         

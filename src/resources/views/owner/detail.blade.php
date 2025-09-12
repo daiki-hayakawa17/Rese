@@ -44,7 +44,7 @@
         <span class="form__input--label">店舗概要</span>
         <textarea class="textarea" rows="10" cols="40" name="description">{{ $shop->description }}</textarea>
         <div class="button__group">
-            <a class="shop__reservation--link" href="owner/shop/reservation">予約情報</a>
+            <a class="shop__reservation--link" href="/owner/shop/detail/{{ $shop->id }}/reservation">予約情報</a>
             <div class="line"></div>
             <button class="form__button">更新</button>
         </div>
