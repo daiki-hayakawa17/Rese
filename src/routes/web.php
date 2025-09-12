@@ -9,6 +9,7 @@ use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Admin\OwnerController;
 use App\Http\Controllers\Owner\ShopController;
+use App\Http\Controllers\Owner\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,4 +58,5 @@ Route::middleware('owner')->group(function () {
     Route::get('/owner/shop/list', [ShopController::class, 'list']);
     Route::get('/owner/shop/detail/{shop_id}', [ShopController::class, 'detail']);
     Route::post('/owner/shop/detail/{shop_id}', [ShopController::class, 'update']);
+    Route::get('/owner/shop/detail/{shop_id}/reservation', [ReservationController::class, 'list']);
 });
