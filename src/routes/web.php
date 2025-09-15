@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\ShopListController;
 use App\Http\Controllers\ShopReservationController;
 use App\Http\Controllers\Auth\MyCustomRegisteredUserController;
@@ -26,7 +29,7 @@ Route::get('/', [ShopListController::class, 'index'])->name('shop.list');
 Route::get('/detail/{shop_id}', [ShopReservationController::class, 'detail'])->name('shop.detail');
 Route::get('/thanks', [MyCustomRegisteredUserController::class, 'thanksView']);
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth', 'verified')->group(function () {
     Route::post('/detail/{shop_id}', [ShopReservationController::class, 'reservation']);
     Route::get('/done', [ShopReservationController::class, 'done']);
     Route::post('/like/{shop_id}', [LikeController::class, 'like']);
@@ -38,7 +41,21 @@ Route::middleware('auth')->group(function () {
     Route::post('/review/{shop_id}', [ReviewController::class, 'store']);
 });
 
-Route::get('admin/login', function () {
+Route::get('/email/verift', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill(); // 認証完了
+    return redirect('/');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+    return back()->with('status', 'verification-link-sent');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+Route::get('/admin/login', function () {
     return view('admin.login');
 })->name('admin.login');
 
