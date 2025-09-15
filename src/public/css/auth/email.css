@@ -1,0 +1,48 @@
+.thanks__content {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    background-color: #fff;
+    margin: 15px auto;
+    text-align: center;
+    padding: 50px 25px;
+    border-radius: 4px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.thanks__message {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 60px;
+}
+
+.resend__button {
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+}
+
+.resend__button--submit {
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+    color: #0073cc;
+    border: none;
+}
+
+.resend__message {
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .done__content {
+        width: 70%;
+        max-width: 500px;
+        height: auto;
+    }
+
+    .done__message {
+        font-size: 100%;
+    }
+}
