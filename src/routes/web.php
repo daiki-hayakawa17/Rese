@@ -13,6 +13,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Admin\OwnerController;
 use App\Http\Controllers\Owner\ShopController;
 use App\Http\Controllers\Owner\ReservationController;
+use App\Http\Controllers\Owner\OwnerMailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,5 +76,7 @@ Route::middleware('owner')->group(function () {
     Route::get('/owner/shop/list', [ShopController::class, 'list']);
     Route::get('/owner/shop/detail/{shop_id}', [ShopController::class, 'detail']);
     Route::post('/owner/shop/detail/{shop_id}', [ShopController::class, 'update']);
-    Route::get('/owner/shop/detail/{shop_id}/reservation', [ReservationController::class, 'list']);
+    Route::get('/owner/shop/detail/{shop_id}/reservation', [ReservationController::class, 'list'])->name('owner.reservation.list');
+    Route::post('/owner/shop/detail/{shop_id}/reservation', [OwnerMailController::class, 'showMailForm'])->name('owner.mail.form');
+    Route::post('/owner/reservation/mail', [OwnerMailController::class, 'send'])->name('owner.mail.send');
 });
