@@ -72,7 +72,8 @@
     margin-bottom: 15px;
 }
 
-.form__button--submit {
+.form__button--submit,
+.all__user--button {
     width: 100%;
     max-width: 300px;
     height: 40px;
@@ -86,6 +87,14 @@
     text-align: center;
     font-size: 18px;
 }
+
+.all__user--form {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
 
 @media (max-width: 768px) {
     .information__tab {
