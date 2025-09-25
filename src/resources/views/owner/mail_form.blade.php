@@ -20,10 +20,16 @@
                 <textarea name="body" rows="5"></textarea>
             </div>
 
-            @foreach($reservations as $reservation)
-                <input type="hidden" name="reservation_ids[]" value="{{ $reservation->id }}">
-            @endforeach
-
+            @if($allUsers)
+                @foreach($users as $user)
+                    <input type="hidden" name="user_ids[]" value="{{ $user->id }}">
+                    <input type="hidden" name="shop_id" value="{{ $shop->id }}">
+                @endforeach
+            @else
+                @foreach($reservations as $reservation)
+                    <input type="hidden" name="reservation_ids[]" value="{{ $reservation->id }}">
+                @endforeach
+            @endif
             <button class="form__button" type="submit">送信</button>
         </form>
     </div>

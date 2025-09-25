@@ -41,8 +41,12 @@
             @endforeach
         </div>
         <div class="form__button">
-            <button type="submit" class="form__button--submit">メール作成</button>
+            <button type="submit" class="form__button--submit" name="all_users" value="0">選択したユーザーにメール作成</button>
         </div>
+    </form>
+    <form action="/owner/shop/detail/{{ $shop->id }}/reservation" method="POST" class="all__user--form">
+        @csrf
+        <button class="all__user--button" name="all_users" value="1">全ユーザーにメール作成</button>
     </form>
 @endsection
 
