@@ -44,7 +44,7 @@ class OwnerMAilController extends Controller
                 ));
             }
 
-            $message = '選択した予約の利用者にメールを送信しました！';
+            $message = '選択した予約の利用者にメールを送信しました';
 
         } elseif($request->filled('user_ids')) {
             $users = User::whereIn('id', $request->user_ids)->where('role', 'user')->get();
@@ -59,7 +59,7 @@ class OwnerMAilController extends Controller
                 ));
             }
 
-            $message = '全ユーザーにメールを送信しました！';
+            $message = '全ユーザーにメールを送信しました';
 
         } else {
             $message = '送信先が選択されていません。';
