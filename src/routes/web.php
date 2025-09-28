@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\OwnerController;
 use App\Http\Controllers\Owner\ShopController;
 use App\Http\Controllers\Owner\ReservationController;
 use App\Http\Controllers\Owner\OwnerMailController;
+use App\Http\Controllers\Admin\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,8 @@ Route::get('/admin/login', function () {
 Route::middleware('admin')->group(function () {
     Route::get('/admin/owner/create', [OwnerController::class, 'create']);
     Route::post('/admin/owner/create', [OwnerController::class, 'store']);
+    Route::get('/admin/mail', [MailController::class, 'showMailForm']);
+    Route::post('/admin/mail', [MailController::class, 'send'])->name('admin.mail.send');
 });
 
 Route::get('/owner/login', function () {

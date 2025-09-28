@@ -31,6 +31,7 @@
                 </button>
                 <div class="menu__links">
                     @csrf
+                    <a class="mail__form--link" href="/admin/mail">Mail-Form</a>
                     <form class="logout__button" action="/admin/logout" method="POST">
                         @csrf
                         <button class="logout__button--submit">Logout</button>
