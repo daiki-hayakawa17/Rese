@@ -33,7 +33,7 @@ Route::get('/thanks', [MyCustomRegisteredUserController::class, 'thanksView']);
 
 Route::middleware('auth', 'verified')->group(function () {
     Route::post('/detail/{shop_id}', [ShopReservationController::class, 'reservation']);
-    Route::get('/done', [ShopReservationController::class, 'done']);
+    Route::get('/done', [ShopReservationController::class, 'done'])->name('payment.success');
     Route::post('/like/{shop_id}', [LikeController::class, 'like']);
     Route::post('/unlike/{shop_id}', [LikeController::class, 'unlike']);
     Route::get('/mypage', [MypageController::class, 'mypageView'])->name('mypage');
