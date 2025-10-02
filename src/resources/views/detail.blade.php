@@ -44,6 +44,16 @@
                     {{ $message }}   
                 @enderror
             </div>
+            <select class="course__select" name="course" id="course">
+                @foreach ($courses as $course)
+                    <option value="{{ $course->id }}">{{ $course->name }}:{{ $course->price }}円</option>
+                @endforeach
+            </select>
+            <div class="form__error">
+                @error('course')
+                    {{ $message }}
+                @enderror
+            </div>
             <table class="shop__information">
                 <tr>
                     <th>Shop</th>
@@ -60,6 +70,10 @@
                 <tr>
                     <th>Numer</th>
                     <td id="number__output">1人</td>
+                </tr>
+                <tr>
+                    <th>Course</th>
+                    <td id="course__output">Aコース:1500円</td>
                 </tr>
             </table>
             <button class="form__button">予約する</button>
@@ -106,6 +120,13 @@
 
         select.addEventListener("change", () => {
             numberOutput.textContent = select.value + "人";
+        });
+
+        const courseSelect = document.getElementById("course");
+        const courseOutput = document.getElementById("course__output");
+
+        courseSelect.addEventListener("change", () => {
+            courseOutput.textContent = courseSelect.options[courseSelect.selectedIndex].text;
         });
     </script>
 @endsection

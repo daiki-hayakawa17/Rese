@@ -75,6 +75,7 @@
     margin-top: 15px;
     margin-left: 25px;
     margin-right: 25px;
+    padding-left: 5px;
     border: none;
     border-radius: 5px;
     appearance: none;
@@ -93,6 +94,21 @@
     margin-top: 15px;
     margin-left: 25px;
     margin-right: 25px;
+    padding-left: 5px;
+    border: none;
+    border-radius: 5px;
+    appearance: none;
+    background: white url("../images/arrow_down.png") no-repeat right center;
+    background-size: 30px;
+}
+
+.course__select {
+    width: 85%;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-left: 5px;
     border: none;
     border-radius: 5px;
     appearance: none;
