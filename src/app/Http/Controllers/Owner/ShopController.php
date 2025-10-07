@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Shop;
+use App\Http\Requests\Owner\ShopRequest;
 
 class ShopController extends Controller
 {
@@ -19,7 +20,7 @@ class ShopController extends Controller
         return view('owner.create', compact('areas', 'genres'));
     }
 
-    public function store(Request $request)
+    public function store(ShopRequest $request)
     {
         $dir = 'images';
 
@@ -63,7 +64,7 @@ class ShopController extends Controller
         return view('owner.detail', compact('shop', 'areas', 'genres'));
     }
 
-    public function update($shop_id, Request $request)
+    public function update($shop_id, ShopRequest $request)
     {
         $shop = Shop::find($shop_id);
 

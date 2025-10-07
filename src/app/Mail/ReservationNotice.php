@@ -35,6 +35,10 @@ class ReservationNotice extends Mailable
     public function build()
     {
         return $this->subject($this->subjectLine)
-                    ->view('emails.reservation_custom');
+                    ->view('emails.reservation_custom')
+                    ->with([
+                        'reservation' => $this->reservation,
+                        'bodyMessage' => $this->bodyMessage,
+                    ]);
     }
 }

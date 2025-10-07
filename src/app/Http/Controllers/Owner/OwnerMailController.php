@@ -2,39 +2,70 @@
 
 namespace App\Http\Controllers\Owner;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Mail\ReservationNotice;
 use App\Mail\AllUsersMail;
 use App\Models\Reservation;
 use App\Models\User;
 use App\Models\Shop;
-use Illuminate\Http\Request;
+use App\Http\Requests\MailRequest;
 use Illuminate\Support\Facades\Mail;
 
-class OwnerMAilController extends Controller
+class OwnerMailController extends Controller
 {
-    public function showMailForm($shop_id, Request $request)
+    public function storeTargets($shop_id, Request $request)
     {
         $allUsers = $request->input('all_users', 0);
         $shop = Shop::find($shop_id);
 
         if ($allUsers) {
-            $users = User::all();
+            session([
+                'mail_targets' => [
+                    'type' => 'all',
+                    'shop_id' => $shop_id,
+                ],
+            ]);
+        } else {
+            session([
+                'mail_targets' => [
+                    'type' => 'reservation',
+                    'reservation_ids' => $request->input('reservation_ids', []),
+                    'shop_id' => $shop_id,
+                ],
+            ]);
+        }
 
+        return redirect()->route('owner.mail.form', ['shop_id' => $shop->id]);
+    }
+
+    public function showMailForm($shop_id)
+    {
+        $targets = session('mail_targets');
+        $shop = Shop::find($shop_id);
+
+        if (!$targets) {
+            return redirect()->back()->with('error', '送信対象が見つかりません。');
+        }
+
+        $allUsers = $targets['type'] === 'all';
+
+        if ($allUsers) {
+            $users = User::where('role', 'user')->get();
             return view('owner.mail_form', compact('users', 'allUsers', 'shop'));
         } else {
-            $reservationIds = $request->input('reservation_ids', []);
-
-            $reservations = Reservation::with('user', 'shop')->whereIn('id', $reservationIds)->get();
-
-            return view('owner.mail_form', compact('reservations', 'allUsers'));
+            $reservations = Reservation::with('user', 'shop')->whereIn('id', $targets['reservation_ids'])->get();
+            return view('owner.mail_form', compact('reservations', 'allUsers', 'shop'));
         }
     }
 
-    public function send(Request $request)
+    public function send(MailRequest $request)
     {
-        if ($request->filled('reservation_ids')) {
-            $reservations = Reservation::with('user', 'shop')->whereIn('id', $request->reservation_ids)->get();
+        $targets = session('mail_targets');
+        $message = '';
+
+        if ($targets['type'] === 'reservation') {
+            $reservations = Reservation::with('user', 'shop')->whereIn('id', $targets['reservation_ids'])->get();
 
             foreach ($reservations as $reservation) {
                 Mail::to($reservation->user->email)->send(new ReservationNotice(
@@ -46,9 +77,9 @@ class OwnerMAilController extends Controller
 
             $message = '選択した予約の利用者にメールを送信しました';
 
-        } elseif($request->filled('user_ids')) {
-            $users = User::whereIn('id', $request->user_ids)->where('role', 'user')->get();
-            $shop = Shop::find($request->shop_id);
+        } else {
+            $users = User::where('role', 'user')->get();
+            $shop = Shop::find($targets['shop_id']);
 
             foreach ($users as $user) {
                 Mail::to($user->email)->send(new AllUsersMail(
@@ -60,12 +91,10 @@ class OwnerMAilController extends Controller
             }
 
             $message = '全ユーザーにメールを送信しました';
-
-        } else {
-            $message = '送信先が選択されていません。';
         }
         
+        session()->forget('mail_targets');
 
-        return back()->with('success', $message);
+        return redirect()->route('owner.reservation.list', ['shop_id' => $targets['shop_id']])->with('success', $message);
     }
 }

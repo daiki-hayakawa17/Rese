@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Http\Requests\Auth\RegisterRequest;
 
 class OwnerController extends Controller
 {
@@ -14,7 +15,7 @@ class OwnerController extends Controller
         return view('admin.create');
     }
 
-    public function store(Request $request)
+    public function store(RegisterRequest $request)
     {
         User::create([
             'name' => $request->name,

@@ -16,6 +16,11 @@
                 <label class="image__input--label" for="shop__image">画像を選択する</label>
                 <input type="file" id="shop__image" name="shop__image" accept="image/*">
             </div>
+            <div class="form__error--image">
+                @error('shop__image')
+                {{ $message }}
+                @enderror
+            </div>
         </div>
         <div class="shop__area">
             <span class="form__input--label">店舗エリア</span>
@@ -26,6 +31,11 @@
                     <span>{{ $area->name }}</span>
                 </label>
                 @endforeach
+            </div>
+            <div class="form__error">
+                @error('area_id')
+                {{ $message }}
+                @enderror
             </div>
         </div>
         <div class="shop__genre">
@@ -38,11 +48,26 @@
                 </label>
                 @endforeach
             </div>
+            <div class="form__error">
+                @error('genre_id')
+                {{ $message }}
+                @enderror
+            </div>
         </div>
         <span class="form__input--label">店舗名</span>
         <input class="input__name" type="text" name="name" placeholder="店舗名を入力してください">
+        <div class="form__error">
+            @error('name')
+            {{ $message }}
+            @enderror
+        </div>
         <span class="form__input--label">店舗概要</span>
         <textarea class="textarea" rows="10" cols="40" placeholder="店舗概要を入力してください" name="description"></textarea>
+        <div class="form__error">
+            @error('description')
+            {{ $message }}
+            @enderror
+        </div>
         <button class="form__button">作成</button>
     </form>
 @endsection
