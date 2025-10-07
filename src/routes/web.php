@@ -43,7 +43,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('/review/{shop_id}', [ReviewController::class, 'store']);
 });
 
-Route::get('/email/verift', function () {
+Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
 
@@ -80,6 +80,7 @@ Route::middleware('owner')->group(function () {
     Route::get('/owner/shop/detail/{shop_id}', [ShopController::class, 'detail']);
     Route::post('/owner/shop/detail/{shop_id}', [ShopController::class, 'update']);
     Route::get('/owner/shop/detail/{shop_id}/reservation', [ReservationController::class, 'list'])->name('owner.reservation.list');
-    Route::post('/owner/shop/detail/{shop_id}/reservation', [OwnerMailController::class, 'showMailForm'])->name('owner.mail.form');
+    Route::post('/owner/shop/detail/{shop_id}/reservation', [OwnerMailController::class, 'storeTargets'])->name('owner.mail.form.store');
+    Route::get('/owner/shop/detail/{shop_id}/reservation/mail', [OwnerMailController::class, 'showMailForm'])->name('owner.mail.form');
     Route::post('/owner/reservation/mail', [OwnerMailController::class, 'send'])->name('owner.mail.send');
 });

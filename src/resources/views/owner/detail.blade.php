@@ -16,6 +16,11 @@
                 <label class="image__input--label" for="shop__image"><img src="{{ asset($shop->image) }}" alt="お店画像"></label>
                 <input type="file" id="shop__image" name="shop__image" accept="image/*">
             </div>
+            <div class="form__error--image">
+                @error('shop__image')
+                {{ $message }}
+                @enderror
+            </div>
         </div>
         <div class="shop__area">
             <span class="form__input--label">店舗エリア</span>
@@ -26,6 +31,11 @@
                     <span>{{ $area->name }}</span>
                 </label>
                 @endforeach
+            </div>
+            <div class="form__error">
+                @error('area_id')
+                {{ $message }}
+                @enderror
             </div>
         </div>
         <div class="shop__genre">
@@ -38,11 +48,26 @@
                 </label>
                 @endforeach
             </div>
+            <div class="form__error">
+                @error('genre_id')
+                {{ $message }}
+                @enderror
+            </div>
         </div>
         <span class="form__input--label">店舗名</span>
         <input class="input__name" type="text" name="name" value="{{ $shop->name }}">
+        <div class="form__error">
+                @error('name')
+                {{ $message }}
+                @enderror
+            </div>
         <span class="form__input--label">店舗概要</span>
         <textarea class="textarea" rows="10" cols="40" name="description">{{ $shop->description }}</textarea>
+        <div class="form__error">
+            @error('description')
+            {{ $message }}
+            @enderror
+        </div>
         <div class="button__group">
             <a class="shop__reservation--link" href="/owner/shop/detail/{{ $shop->id }}/reservation">予約情報</a>
             <div class="line"></div>

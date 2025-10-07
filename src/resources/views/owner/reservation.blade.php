@@ -13,7 +13,7 @@
         <a class="reservation__tab {{ request('page', 'reservation') === 'reservation' ? 'active' : '' }}" href="{{ route('owner.reservation.list', ['shop_id' => $shop->id, 'page' => 'reservation']) }}">予約状況</a>
         <a class="visited__tab {{ request('page') === 'visited' ? 'active' : '' }}" href="{{ route('owner.reservation.list', ['shop_id' => $shop->id, 'page' => 'visited']) }}">過去の予約</a>
     </div>
-    <form action="/owner/shop/detail/{{ $shop->id }}/reservation" method="POST">
+    <form action="{{ route('owner.mail.form.store', ['shop_id' => $shop->id]) }}" method="POST">
         @csrf
         <div class="reservation__contents">
             @foreach($reservations as $reservation)
@@ -44,7 +44,7 @@
             <button type="submit" class="form__button--submit" name="all_users" value="0">選択したユーザーにメール作成</button>
         </div>
     </form>
-    <form action="/owner/shop/detail/{{ $shop->id }}/reservation" method="POST" class="all__user--form">
+    <form action="{{ route('owner.mail.form.store', ['shop_id' => $shop->id]) }}" method="POST" class="all__user--form">
         @csrf
         <button class="all__user--button" name="all_users" value="1">全ユーザーにメール作成</button>
     </form>

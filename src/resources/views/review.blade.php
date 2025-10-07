@@ -35,9 +35,19 @@
                 <input type="radio" id="star1" name="rating" value="1">
                 <label for="star1">★</label>
             </div>
+            <div class="form__error">
+                @error('rating')
+                    {{ $message }}
+                @enderror
+            </div>
             <div class="review">
                 <h3 class="review__title">レビュー</h3>
                 <textarea name="comment" rows="10" cols="40"></textarea>
+            </div>
+            <div class="form__error">
+                @error('comment')
+                    {{ $message }}
+                @enderror
             </div>
             <div class="form__button">
                 <button class="form__button--submit">投稿する</button>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Shop;
 use App\Models\Review;
+use App\Http\Requests\ReviewRequest;
 
 class ReviewController extends Controller
 {
@@ -16,7 +17,7 @@ class ReviewController extends Controller
         return view('review', compact('shop'));
     }
 
-    public function store($shop_id, Request $request)
+    public function store($shop_id, ReviewRequest $request)
     {
         $user = Auth::user();
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use App\Mail\AdminAllUsersMail;
+use App\Http\Requests\MailRequest;
 
 class MailController extends Controller
 {
@@ -15,7 +16,7 @@ class MailController extends Controller
         return view('admin.mail_form');
     }
 
-    public function send(Request $request)
+    public function send(MailRequest $request)
     {
         $users = User::where('role', 'user')->get();
 

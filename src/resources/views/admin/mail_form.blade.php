@@ -18,12 +18,20 @@
                 <label for="subject">件名</label>
                 <input type="text" name="subject">
             </div>
-
+            <div class="form__error">
+                @error('subject')
+                {{ $message }}
+                @enderror
+            </div>
             <div class="form__group--textarea">
                 <label for="body">本文</label>
                 <textarea name="body" rows="5"></textarea>
             </div>
-            
+            <div class="form__error">
+                @error('body')
+                {{ $message }}
+                @enderror
+            </div>
             <button class="form__button" type="submit">送信</button>
         </form>
     </div>
