@@ -4,10 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Reservation extends Model
 {
     use HasFactory;
+
+    protected static function booted()
+    {
+        static::creating(function ($reservation) {
+            if (empty($reservation->qr_token)) {
+                $reservation->qr_token = Str::uuid();
+            }
+        });
+    }
 
     protected $fillable = [
         'user_id',
@@ -16,6 +26,9 @@ class Reservation extends Model
         'date',
         'time',
         'number',
+        'qr_token',
+        'checked_in',
+        'checked_in_at',
     ];
 
     public function user()

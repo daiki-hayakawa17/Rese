@@ -69,6 +69,7 @@
                                 </tr>
                             </table>
                             <div class="update__button">
+                                <a href="/reservation/{{$reservation->id}}/qr" class="qr__link">QRコードを表示</a>
                                 <button class="update__button--submit">変更</button>
                             </div>
                         </form>

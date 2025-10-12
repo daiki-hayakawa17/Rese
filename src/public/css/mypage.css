@@ -121,6 +121,12 @@
     margin-top: 10px;
 }
 
+.qr__link {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 10px;
+}
+
 .update__button--submit {
     width: 50px;
     height: 30px;
