@@ -15,6 +15,8 @@ use App\Http\Controllers\Owner\ShopController;
 use App\Http\Controllers\Owner\ReservationController;
 use App\Http\Controllers\Owner\OwnerMailController;
 use App\Http\Controllers\Admin\MailController;
+use App\Http\Controllers\UserQrController;
+use App\Http\Controllers\Owner\CheckinController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +43,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('/update/{reservation_id}', [ShopReservationController::class, 'update']);
     Route::get('/review/{shop_id}', [ReviewController::class, 'createView']);
     Route::post('/review/{shop_id}', [ReviewController::class, 'store']);
+    Route::get('/reservation/{reservation_id}/qr', [UserQrController::class, 'show'])->name('reservation.qr');
 });
 
 Route::get('/email/verify', function () {
@@ -83,4 +86,5 @@ Route::middleware('owner')->group(function () {
     Route::post('/owner/shop/detail/{shop_id}/reservation', [OwnerMailController::class, 'storeTargets'])->name('owner.mail.form.store');
     Route::get('/owner/shop/detail/{shop_id}/reservation/mail', [OwnerMailController::class, 'showMailForm'])->name('owner.mail.form');
     Route::post('/owner/reservation/mail', [OwnerMailController::class, 'send'])->name('owner.mail.send');
+    Route::get('/checkin/verify/{reservation_id}', [CheckinController::class, 'verify'])->name('checkin.verify');
 });

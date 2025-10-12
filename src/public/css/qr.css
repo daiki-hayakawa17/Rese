@@ -1,0 +1,17 @@
+.qr__page {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.qr__page--title {
+    font-size: 32px;
+}
+
+.qr__text {
+    color: #0073cc;
+}
+
+.mypage__link {
+    text-decoration: none;
+    color: rgb(0, 76, 255);
+}

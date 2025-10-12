@@ -21,6 +21,9 @@ class CreateReservationsTable extends Migration
             $table->date('date');
             $table->time('time');
             $table->integer('number')->default(1);
+            $table->string('qr_token', 64)->unique()->nullable();
+            $table->boolean('checked_in')->default(false);
+            $table->timestamp('checked_in_at')->nullable();
             $table->timestamps();
         });
     }

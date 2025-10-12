@@ -19,9 +19,9 @@ class MypageController extends Controller
         $page = request()->query('page', 'reservation');
 
         if ($page === 'reservation') {
-            $reservations = Reservation::with('shop')->where('user_id', $user->id)->whereRaw("CONCAT(date, ' ', time) > ?", [$now])->get();
+            $reservations = Reservation::with('shop')->where('user_id', $user->id)->where('checked_in', false)->get();
         } elseif ($page === 'visited') {
-            $reservations = Reservation::with('shop.area', 'shop.genre')->where('user_id', $user->id)->whereRaw("CONCAT(date, ' ', time) <= ?", [$now])->get();
+            $reservations = Reservation::with('shop.area', 'shop.genre')->where('user_id', $user->id)->where('checked_in', true)->get();
         }
 
         $shops = Shop::whereHas('likedByUsers', function ($query) use ($user) {
