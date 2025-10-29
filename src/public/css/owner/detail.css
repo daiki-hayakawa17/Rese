@@ -39,6 +39,7 @@
 
 .image__input--label img {
     width: 100%;
+    max-height: 300px;
 }
 
 .output__label {
