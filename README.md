@@ -48,4 +48,6 @@ php artisan db:seed
 ## URL
 - 開発環境：http://localhost/
 - phpMyAdmin：http://localhost:8080/
-- 本番環境：http:http://ec2-3-106-55-161.ap-southeast-2.compute.amazonaws.com/
+- 本番環境：http://ec2-3-106-55-161.ap-southeast-2.compute.amazonaws.com/
+- 開発環境MailHog：http://localhost:8025
+- 本番環境MailHog：http://ec2-3-106-55-161.ap-southeast-2.compute.amazonaws.com:8025/
