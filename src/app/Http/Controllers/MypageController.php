@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
 use App\Models\Reservation;
 use App\Models\Shop;
 
@@ -13,8 +12,6 @@ class MypageController extends Controller
     public function mypageView()
     {
         $user = Auth::user();
-
-        $now = Carbon::now();
 
         $page = request()->query('page', 'reservation');
 
